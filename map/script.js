@@ -1,7 +1,21 @@
-// Inisialisasi peta
-var mymap = L.map('map').setView([-2.5489, 118.0149], 5); // Atur koordinat dan zoom awal yang sesuai
+fetch(geojsonUrl)
+    .then(function (response) {
+        return response.json();
+    })
+    .then(function (data) {
+        var geojsonLayer = L.geoJSON(data, {
+            onEachFeature: function (feature, layer) {
+                layer.on('mouseover', function () {
+                    var namaDaerah = feature.properties['Propinsi'];
+                    layer.bindPopup(namaDaerah).openPopup();
+                });
 
-// Menambahkan lapisan peta dasar dari Leaflet
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    maxZoom: 19,
-}).addTo(mymap);
+                layer.on('click', function () {
+                    var namaDaerah = feature.properties['Propinsi'];
+                    layer.bindPopup(namaDaerah).openPopup();
+                });
+            }
+        }).addTo(mymap);
+
+        mymap.fitBounds(geojsonLayer.getBounds());
+    });

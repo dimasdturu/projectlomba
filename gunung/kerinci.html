@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Indonesian Culture</title> 
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital@1&family=Josefin+Sans:ital,wght@1,700&family=Konkhmer+Sleokchher&family=Asul&display=swap" rel="stylesheet">
+    <link rel="icon" href="../asset/origin.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../asset/origin.ico" type="image/x-icon">
+    <style>
+        /* sekte kiri */
+        .arrow-buttonn {
+            display: flex;
+            color: white;
+            background-color: red;
+            padding: 10px 16px;
+            border-radius: 20px;
+            transition: all .3s ease;
+            font-weight: bold;
+            text-decoration: none;
+            cursor: pointer;
+            align-items: center;
+            font-size: 14px;
+            float: left;
+            margin-top: -60px;
+            margin-left: 90px;
+        }
+
+        .arrow-buttonn > .arroww {
+            width: 6px;
+            height: 6px;
+            border-right: 2px solid white;
+            border-bottom: 2px solid white;
+            position: relative;
+            transform: rotate(135deg);
+            margin: 0 6px;
+            transition: all .3s ease;
+        }
+
+        .arrow-buttonn > .arroww::before {
+            display: block;
+            background-color: currentColor;
+            width: 3px;
+            transform-origin: bottom left;
+            height: 2px;
+            position: absolute;
+            opacity: 0;
+            bottom: calc(-2px / 2);
+            transform: rotate(-45deg);
+            transition: all .3s ease;
+            content: "";
+            left: 0;
+        }
+
+        .arrow-buttonn:hover > .arroww {
+            transform: rotate(135deg) translate(4px, 4px);
+            border-color: text-hover-color;
+        }
+
+        /* sekte kanan */
+        .arrow-button {
+            display: flex;
+            color: white;
+            background-color: red;
+            padding: 10px 16px;
+            border-radius: 20px;
+            transition: all .3s ease;
+            font-weight: bold;
+            text-decoration: none;
+            cursor: pointer;
+            align-items: center;
+            font-size: 14px;
+            float: right;
+            margin-top: -60px;
+            margin-right: 90px;
+        }
+
+        .arrow-button > .arrow {
+            width: 6px;
+            height: 6px;
+            border-right: 2px solid white;
+            border-bottom: 2px solid white;
+            position: relative;
+            transform: rotate(-45deg);
+            margin: 0 6px;
+            transition: all .3s ease;
+        }
+
+        .arrow-button > .arrow::before {
+            display: block;
+            background-color: currentColor;
+            width: 3px;
+            transform-origin: bottom right;
+            height: 2px;
+            position: absolute;
+            opacity: 0;
+            bottom: calc(-2px / 2);
+            transform: rotate(45deg);
+            transition: all .3s ease;
+            content: "";
+            right: 0;
+        }
+
+        .arrow-button:hover > .arrow {
+            transform: rotate(-45deg) translate(4px, 4px);
+            border-color: text-hover-color;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+
+        <a href="../index.html" class="logo">
+            <img src="../asset/origin-asli.png" alt="Origin" width="35px;">
+        </a>
+
+        <nav class="navbar">
+            <a href="../index.html" class="active">Beranda</a>
+            <a href="../suku.html">Suku</a>
+            <a href="../candi.html">Candi</a>
+            <a href="../map/index.html">Peta Indonesia</a>
+        </nav>
+        
+        <div id="menu-button">
+            <i class="fas fa-bars"></i>
+        </div>
+
+    </header>
+
+    <section>
+        <div class="selengkapnya">
+            <h1 class="judul">Gunung Kerinci</h1>
+            <div class="gambar-container">
+                <img src="./img/kerinci.jpg" alt="Kerinci" class="gambar">
+            </div>
+            <div class="deskripsi">
+                <p><strong>Description</strong></p>
+            </div>
+                <p class="deskripsi2">
+                    Gunung Kerinci adalah salah satu gunung tertinggi di Indonesia, 
+                    mencapai ketinggian 3.805 M di atas permukaan laut, dan terletak di Provinsi Jambi, Sumatra. 
+                    Dikenal sebagai gunung berapi paling aktif di Indonesia, 
+                    Gunung Kerinci menawarkan lanskap alam yang menakjubkan dengan hutan hujan tropis, lembah, dan sungai yang mempesona. 
+                    Pendakian gunung ini adalah tujuan populer bagi para pendaki gunung yang ingin menaklukkan puncaknya yang menantang. 
+                    Dari puncak Gunung Kerinci, para pendaki dapat menikmati pemandangan panoramik yang luar biasa dan merasakan kekuatan alam yang spektakuler, 
+                    dengan suara erupsi geothermal yang terdengar dari dalam gunung yang aktif ini.
+                </p>
+        </div>
+    </section>
+
+    <br></br>
+
+    <a class="arrow-buttonn" href="./jayawijaya.html"><span class="arroww"></span>Jayawijaya</a>
+    <a class="arrow-button" href="./rinjani.html">Rinjani<span class="arrow"></span></a>
+
+    <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+    <script src="../js/script.js"></script>
+    <script>
+        function isElementInViewport(el) {
+            const rect = el.getBoundingClientRect();
+            return (
+                rect.top >= 0 &&
+                rect.left >= 0 &&
+                rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+                rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+            );
+        }
+
+        function handleScroll() {
+            const deskripsi = document.querySelector(".deskripsi");
+            const deskripsi2 = document.querySelector(".deskripsi2");
+
+            if (isElementInViewport(deskripsi) && deskripsi.style.opacity !== "1") {
+                deskripsi.style.opacity = "1";
+            }
+
+            if (isElementInViewport(deskripsi2) && deskripsi2.style.opacity !== "1") {
+                deskripsi2.style.opacity = "1";
+            }
+        }
+
+        window.addEventListener("scroll", handleScroll);
+    
+        document.addEventListener("DOMContentLoaded", handleScroll);
+    </script>
+
+</body>
+
+<footer class="footer">
+    Copyright &copy; 2023 <strong>Origin Team.</strong> All Rights Reserved.
+</footer>
+
+</html>

@@ -7,10 +7,19 @@
     <title>Indonesian Culture</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital@1&family=Josefin+Sans:ital,wght@1,700&family=Konkhmer+Sleokchher&family=Asul&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="icon" href="./asset/origin.ico" type="image/x-icon">
     <link rel="shortcut icon" href="../asset/origin.ico" type="image/x-icon">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <style>
+        #map {
+            width: 100%;
+            height: 583px;
+        }
+    </style>
 </head>
 <body>
     <header class="header">
@@ -21,27 +30,59 @@
 
         <nav class="navbar">
             <a href="../index.html">Beranda</a>
-            <a href="#">Kebudayaan</a>
-            <a href="#">Candi</a>
-            <a href="index.html">Peta Indonesia</a>
+            <a href="../suku.html">Suku</a>
+            <a href="../candi.html">Candi</a>
+            <a href="index.html" class="active">Peta Indonesia</a>
         </nav>
 
-        <div></div>
+        <div id="menu-button">
+            <i class="fas fa-bars"></i>
+        </div>
 
     </header>
 
-    <br></br>
-    <br></br>
-    <br></br>
-    <div id="map" style="width: 800px; height: 600px;"></div>
+    <div id="map"></div>
+
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
-    <script src="script.js"></script>
     <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
     <script src="../js/script.js"></script>
-</body>
+    <script>
+        var mymap = L.map('map', {
+            zoomControl: false
+        }).setView([-2.5489, 118.0149], 5);
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+        }).addTo(mymap);
+
+        var geojsonUrl = 'indonesia-prov.geojson';
+
+        fetch(geojsonUrl)
+            .then(function (response) {
+                return response.json();
+            })
+            .then(function (data) {
+                var geojsonLayer = L.geoJSON(data, {
+                    onEachFeature: function (feature, layer) {
+                        layer.on('mouseover', function () {
+                            var namaDaerah = feature.properties.Propinsi;
+                            layer.bindPopup(namaDaerah).openPopup();
+                        });
+
+                        layer.on('click', function () {
+                            var namaDaerah = feature.properties.Propinsi;
+                            layer.bindPopup(namaDaerah).openPopup();
+                        });
+                    }
+                }).addTo(mymap);
+
+                mymap.fitBounds(geojsonLayer.getBounds());
+            });
+    </script>
 
 <footer class="footer">
-    &copy; 2023 Origin Team.
+    Copyright &copy; 2023 <strong>Origin Team.</strong> All Rights Reserved.
 </footer>
 
+</body>
 </html>

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Indonesian Culture</title> 
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital@1&family=Josefin+Sans:ital,wght@1,700&family=Konkhmer+Sleokchher&family=Asul&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="icon" href="../asset/origin.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../asset/origin.ico" type="image/x-icon">
+    <style>
+        iframe {
+            border: none;
+            display: block;
+            width: 100%;
+            height: 485px;
+            margin: 3px auto;
+            margin-bottom: -1px;
+            }
+
+            @media screen and (max-width: 768px) {
+            iframe {
+                height: 60vw;
+            }
+        }
+
+        .iframe-container iframe {
+            border: none;
+            width: 1200px;
+            height: 500px;
+        }
+
+        /* sekte kiri */
+        .arrow-buttonn {
+            display: flex;
+            color: white;
+            background-color: red;
+            padding: 10px 16px;
+            border-radius: 20px;
+            transition: all .3s ease;
+            font-weight: bold;
+            text-decoration: none;
+            cursor: pointer;
+            align-items: center;
+            font-size: 14px;
+            float: left;
+            margin-top: -60px;
+            margin-left: 90px;
+        }
+
+        .arrow-buttonn > .arroww {
+            width: 6px;
+            height: 6px;
+            border-right: 2px solid white;
+            border-bottom: 2px solid white;
+            position: relative;
+            transform: rotate(135deg);
+            margin: 0 6px;
+            transition: all .3s ease;
+        }
+
+        .arrow-buttonn > .arroww::before {
+            display: block;
+            background-color: currentColor;
+            width: 3px;
+            transform-origin: bottom left;
+            height: 2px;
+            position: absolute;
+            opacity: 0;
+            bottom: calc(-2px / 2);
+            transform: rotate(-45deg);
+            transition: all .3s ease;
+            content: "";
+            left: 0;
+        }
+
+        .arrow-buttonn:hover > .arroww {
+            transform: rotate(135deg) translate(4px, 4px);
+            border-color: text-hover-color;
+        }
+
+        /* sekte kanan */
+        .arrow-button {
+            display: flex;
+            color: white;
+            background-color: red;
+            padding: 10px 16px;
+            border-radius: 20px;
+            transition: all .3s ease;
+            font-weight: bold;
+            text-decoration: none;
+            cursor: pointer;
+            align-items: center;
+            font-size: 14px;
+            float: right;
+            margin-top: -60px;
+            margin-right: 90px;
+        }
+
+        .arrow-button > .arrow {
+            width: 6px;
+            height: 6px;
+            border-right: 2px solid white;
+            border-bottom: 2px solid white;
+            position: relative;
+            transform: rotate(-45deg);
+            margin: 0 6px;
+            transition: all .3s ease;
+        }
+
+        .arrow-button > .arrow::before {
+            display: block;
+            background-color: currentColor;
+            width: 3px;
+            transform-origin: bottom right;
+            height: 2px;
+            position: absolute;
+            opacity: 0;
+            bottom: calc(-2px / 2);
+            transform: rotate(45deg);
+            transition: all .3s ease;
+            content: "";
+            right: 0;
+        }
+
+        .arrow-button:hover > .arrow {
+            transform: rotate(-45deg) translate(4px, 4px);
+            border-color: text-hover-color;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+
+        <a href="../index.html" class="logo">
+            <img src="../asset/origin-asli.png" alt="Origin" width="35px;">
+        </a>
+
+        <nav class="navbar">
+            <a href="../index.html">Beranda</a>
+            <a href="../suku.html">Suku</a>
+            <a href="../candi.html" class="active">Candi</a>
+            <a href="../map/index.html">Peta Indonesia</a>
+        </nav>
+        
+        <div id="menu-button">
+            <i class="fas fa-bars"></i>
+        </div>
+
+    </header>
+
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+
+    <h2 class="heading">Candi Prambanan</h2>
+
+    <div style="text-align: center;">
+        <div class="iframe-container">
+            <iframe width="100%" height="485px" src="./Prambanan/index.html"></iframe>
+        </div>
+    </div>
+
+    <br></br>
+    <br></br>
+    <br></br>
+    <br>
+
+    <a class="arrow-buttonn" href="./borobudur.html"><span class="arroww"></span>Borobudur</a>
+    <a class="arrow-button" href="./bajangratu.html">Bajang Ratu<span class="arrow"></span></a>
+
+    <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+    <script src="../js/script.js"></script>
+
+</body>
+
+<footer class="footer">
+    Copyright &copy; 2023 <strong>Origin Team.</strong> All Rights Reserved.
+</footer>
+
+</html>

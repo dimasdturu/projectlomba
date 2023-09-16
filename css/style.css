@@ -1,12 +1,63 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap');
 
 :root{
-  --main: #ff6e01;
-  --bg: #f1e1d2;
+  --main: #ff0000;
+  --bg: #f1d2d2;
   --black: #000;
   --white: #fff;
   --box-shadow: 0 .5rem 1rem rgba(0, 0, 0, 0.1);
 }
+
+.selengkapnya {
+  margin: 20px 0;
+  font-size: 16px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 10px;
+  text-align: center;
+}
+
+.judul {
+  font-size: 40px;
+  margin: 20px 0;
+  font-family: 'Konkhmer Sleokchher', cursive;
+}
+
+.gambar-container {
+  text-align: center;
+  margin: 40px 0;
+}
+
+.gambar {
+  max-width: 107%;
+  height: auto;
+  display: block;
+  margin-left: -32px;
+}
+
+.deskripsi {
+  text-align: left;
+  margin: 20px 0;
+  font-size: 40px;
+  opacity: 0;
+  transition: opacity 1s;
+}
+
+.deskripsi2 {
+  font-size: 17px;
+  line-height: 1.5;
+  word-spacing: 2px;
+  text-align: justify;
+  opacity: 0;
+  transition: opacity 1s;
+  color: #797979;
+  font-family: 'sans-serif';
+}
+
+.line-break {
+  margin-bottom: 450px;
+}
+
 
 .infohero__title {
   font-size: 55px;
@@ -33,7 +84,6 @@
   box-sizing: border-box;
   outline: none; border: none;
   text-decoration: none;
-  text-transform: capitalize;
   transition: .2s linear;
 }
 
@@ -90,7 +140,7 @@ section{
   top: 0;
   height: 100%;
   width: 0%;
-  background: #ff9748;
+  background: #d3cfcf;
   z-index: -1;
   transition: .3s linear;
   left: 0;
@@ -99,7 +149,6 @@ section{
 .btn:hover::before{
   width: 100%;
 }
-
 
 /* sekte header */
 
@@ -112,7 +161,12 @@ section{
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 2rem 9%;
+  padding: 1rem 8%;
+}
+
+.header .navbar a.active {
+  color: var(--main);
+  font-weight: bold;
 }
 
 .header .logo{
@@ -125,10 +179,17 @@ section{
   color: var(--main);
 }
 
+.header .logo img{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
 .header .navbar a{
   font-size: 1.7rem;
   color: var(--black);
   margin: 0 1rem;
+  font-family: 'Josefin Sans', sans-serif;
 }
 
 .header .navbar a:hover{
@@ -142,8 +203,42 @@ section{
   color: var(--black);
 }
 
-#menu-btn{
+#menu-button {
   display: none;
+}
+
+@media screen and (max-width: 768px) {
+  .header {
+    padding: 1rem 2rem;
+  }
+
+  .header .navbar {
+    display: none;
+    flex-direction: column;
+    background-color: var(--white);
+    position: absolute;
+    top: 60px;
+    right: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    z-index: 1;
+    border-top: 1px solid #ccc;
+  }
+
+  .header .navbar.active {
+    display: flex;
+  }
+
+  .header .navbar a {
+    margin: 10px 0;
+  }
+
+  #menu-button {
+    display: block;
+    font-size: 2rem;
+    cursor: pointer;
+  }
 }
 
 /* sekte home */
@@ -171,6 +266,55 @@ section{
   width: 100%;
   height: 12rem;
 }
+
+/*sekte apaitu */
+
+.apaitu {
+  background: var(--bg);
+  padding: 50px;
+}
+
+.apaitu .slide {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+}
+
+.apaitu .content {
+  margin-bottom: 20px;
+}
+
+.apaitu .content h3 {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0;
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+.apaitu .content p,
+.apaitu .content strong {
+  font-size: 18px;
+  margin: 0;
+  text-align: justify;
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+.apaitu .content p:last-child {
+  margin-bottom: 10px;
+}
+
+.apaitu .details {
+  font-size: 14px;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  color: var(--white);
+}
+
 
 /* sekte gunung */
 
@@ -221,59 +365,365 @@ section{
   text-align: center;
   font-size: 3rem;
   color: var(--white);
+  font-family: 'Konkhmer Sleokchher', cursive;
+}
+
+.gunung .box-container .box .content a{
+  font-family: 'Asul', sans-serif;
 }
 
 .gunung .box-container .box:is(:hover, :focus-within) .content{
   transform: translateY(-20px);
 }
 
-/* sekte pricing */
+/* sekte suku */
 
-.pricing .box-container{
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
-  gap: 2rem;
+.image-container {
+  display: inline-block;
+  max-width: 100%;
+  height: auto;
+  padding: 4px;
 }
 
-.pricing .box-container .box{
-  background: var(--bg);
-  padding: 3rem;
+.image-box {
+  flex: 1;
+  margin-left: 10px;
+}
+
+.image-box img {
+  max-width: 100%;
+  height: 340px;
+  width: 340px;
+}
+
+#sukusection {
+  background: #ffffff;
+  height: auto;
+}
+
+#sukuwarp {
+  padding-top: 50px;
+  position: relative;
+  padding-left: 0;
+  padding-right: 0;
+  z-index: 1;
+}
+
+.grid-gutter-md {
+  margin-left: -8px;
+  margin-right: -8px;
+}
+
+.suku__item {
+  cursor: pointer;
+  margin: 0;
+  position: relative;
+  float: right;
+  padding: 10px;
+  width: 33.3333%;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.suku__item1 {
+  cursor: pointer;
+  margin: 0 370px;
+  padding: 10px;
+  width: 33.3333%;
+  border-radius: 5px;
+  overflow: hidden;
+  display: inline-block;
   text-align: center;
-  border-radius: 79% 51% 81% 19% / 58% 93% 7% 42%;
 }
 
-.pricing .box-container .box:hover{
-  border-radius: .5rem;
+.suku__item2 {
+  cursor: pointer;
+  margin: 0 120px;
+  padding: 10px;
+  width: 33.3333%;
+  border-radius: 5px;
+  overflow: hidden;
+  display: inline-block;
+  text-align: center;
 }
 
-.pricing .box-container .box img{
-  height: 15.5rem;
-  width: 15.5rem;
-  margin-bottom: .5rem;
+.suku__item3 {
+  cursor: pointer;
+  margin: 0 0px;
+  padding: 10px;
+  width: 33.3333%;
+  border-radius: 5px;
+  overflow: hidden;
+  display: inline-block;
+  text-align: center;
 }
 
-.pricing .box-container .box h3{
-  font-size: 2.6rem;
-  color: var(--black);
-  padding: 1rem 0;
+.suku__content {
+  border-radius: 5px;
+  height: 350px;
+  width: 100%;
+  -webkit-transition: all .3s ease;
+  -moz-transition: all .3s ease;
+  -ms-transition: all .3s ease;
+  -o-transition: all .3s ease;
+  transition: all .3s ease;
 }
 
-.pricing .box-container .box .price{
-  font-size: 2.2rem;
-  color: var(--main);
-  padding: .5rem 0;
+.suku_link i {
+  position: absolute;
+  z-index: 1;
+  color: #181715;
+  opacity: 0;
+  font-size: 50px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  transition: all .3s;
 }
 
-.pricing .box-container .box p{
-  font-size: 1.5rem;
-  color: var(--black);
-  padding: .5rem 0;
+.suku__item:hover .suku__content {
+  opacity: .5;
+}
+
+.suku__item1:hover .suku__content {
+  opacity: .5;
+}
+
+.suku__item2:hover .suku__content {
+  opacity: .5;
+}
+
+.suku__item3:hover .suku__content {
+  opacity: .5;
+}
+
+@media (max-width: 999px) {
+  .suku__item {
+      width: 50%;
+  }
+}
+
+@media (max-width: 799px) {
+  .suku__item {
+      width: 100%;
+  }
+}
+
+/* sekte candi rata kiri */
+
+.kotak {
+  width: 90%;
+  margin: 0 auto;
+  padding: 10px 20px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.candi {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.candi-image {
+  flex: 1;
+  margin-right: 40px;
+  overflow: hidden;
+}
+
+.candi-image img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  transition: 0.5s ease;
+}
+
+.candi-image:hover img {
+  transform: scale(1.2);
+}
+
+.candi-content {
+  flex: 1;
+}
+
+.candi-content h2 {
+  font-size: 23px;
+  margin-bottom: 10px;
+  color: #333;
+  font-family: 'Konkhmer Sleokchher', cursive;
+}
+
+.candi-content p {
+  font-size: 16px;
+  line-height: 1.5;
+  color: #666;
+  font-family: 'Asul', sans-serif;
+}
+
+.candi-content .gass {
+  display: inline-block;
+  padding: 8px 8px;
+  border-radius: 3px;
+  font-size: 16px;
+  color: #fff;
+  text-decoration: none;
+  margin-top: 15px;
+  transition: 0.3s ease;
+  font-family: 'Asul', sans-serif;
+}
+
+.candi-content .gass {
+  background-color: #ff0000;
+}
+
+.candi-content .gass:hover {
+  background-color: #d3cfcf;
+}
+
+@media screen and (max-width: 768px){
+  .heading {
+    padding: 0px 20px;
+  }
+  .heading h1 {
+    font-size: 36px;
+  }
+  .heading p {
+    font-size: 17px;
+    margin-bottom: 0px;
+  }
+  .kotak {
+    padding: 0px;
+  }
+  .candi {
+    padding: 20px;
+    flex-direction: column;
+  }
+  .candi-image {
+    margin-right: 0px;
+    margin-bottom: 20px;
+  }
+  .candi-content p {
+    padding: 0px;
+    font-size: 16px;
+  }
+  .candi-content .gass {
+    font-size: 16px;
+  }
+}
+
+/* sekte candi rata kanan */
+
+.kotakk {
+  width: 90%;
+  margin: 0 auto;
+  padding: 10px 20px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.candii {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  flex-direction: row-reverse;
+}
+
+.candii-image {
+  flex: 1;
+  margin-right: 40px;
+  overflow: hidden;
+}
+
+.candii-image img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  transition: 0.5s ease;
+}
+
+.candii-image:hover img {
+  transform: scale(1.2);
+}
+
+.candii-content {
+  flex: 1;
+  margin-right: 40px;
+}
+
+.candii-content h2 {
+  font-size: 23px;
+  margin-bottom: 10px;
+  color: #333;
+  font-family: 'Konkhmer Sleokchher', cursive;
+  text-align: right;
+}
+
+.candii-content p {
+  font-size: 16px;
+  line-height: 1.5;
+  color: #666;
+  font-family: 'Asul', sans-serif;
+  text-align: right;
+}
+
+.candii-content .gasss {
+  display: inline-block;
+  padding: 8px 8px;
+  border-radius: 3px;
+  font-size: 16px;
+  color: #fff;
+  text-decoration: none;
+  margin-top: 15px;
+  transition: 0.3s ease;
+  font-family: 'Asul', sans-serif;
+  float: right;
+}
+
+.candii-content .gasss {
+  background-color: #ff0000;
+}
+
+.candii-content .gasss:hover {
+  background-color: #d3cfcf;
+}
+
+@media screen and (max-width: 768px){
+  .heading {
+    padding: 0px 20px;
+  }
+  .heading h1 {
+    font-size: 36px;
+  }
+  .heading p {
+    font-size: 17px;
+    margin-bottom: 0px;
+  }
+  .kotakk {
+    padding: 0px;
+  }
+  .candii {
+    padding: 20px;
+    flex-direction: column;
+  }
+  .candii-image {
+    margin-right: 0px;
+    margin-bottom: 20px;
+  }
+  .candii-content p {
+    padding: 0px;
+    font-size: 16px;
+  }
+  .candii-content .gasss {
+    font-size: 16px;
+  }
 }
 
 /* sekte footer */
 
 .footer {
-  background-color: #ff6e01;
+  background-color: #ff0000;
   color: #fff;
   padding: 20px 0;
   text-align: center;

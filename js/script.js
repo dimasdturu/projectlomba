@@ -1,3 +1,12 @@
+document.addEventListener("DOMContentLoaded", function () {
+    const menuBtn = document.getElementById("menu-button");
+    const navbar = document.querySelector(".navbar");
+  
+    menuBtn.addEventListener("click", function () {
+      navbar.classList.toggle("active");
+    });
+  });  
+
 const textArray = ["INDONESIAN."];
   
 let textArrayIndex = 0;
@@ -34,35 +43,25 @@ if (charIndex <= textArray[textArrayIndex].length - 1) {
 };
 
 typeanimation();
-  
 
-let navbar = document.querySelector(".header .navbar");
-
-document.querySelector('#menu-btn').onclick = () =>{
-    login.classList.remove('active');
-    navbar.classList.toggle('active');
-}
-
-window.onscroll = () =>{
-    login.classList.remove('active');
-    navbar.classList.remove('active');
-}
-
-var swiper = new Swiper(".gallery-slider", {
-    grabCursor:true,
-    loop:true,
-    centeredSlides:true,
-    spaceBetween:20,
-    navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
-    },
-    breakpoints: {
-        0:{
-            slidesPerView:1,
-        },
-        700:{
-            slidesPerView:2,
-        },
-    }
-})
+const suku = function(e) {
+    var myShuffle = new Shuffle(porto, {
+        itemSelector: '.suku__item',
+        buffer: 0,
+        columnThreshold: 0.01,
+        columnWidth: 0,
+        delimiter: null,
+        sizer: null,
+        speed: 250,
+        filterMode: Shuffle.FilterMode.ANY,
+        group: Shuffle.ALL_ITEMS,
+    });
+    for (var i = 0; i < btns.length; i++) {
+        btns[i].addEventListener("click", function(e) {
+            document.querySelector('.active').classList.remove('active');
+            (document.querySelector('.active')) ? document.querySelector('.active').classList.remove('active'): '';
+            this.classList.add('active');
+            myShuffle.filter(e.target.dataset.group);
+        });
+    };
+};
