@@ -15,8 +15,25 @@
     <link rel="stylesheet" href="./css/glightbox.css">
     <link rel="icon" href="./asset/origin.ico" type="image/x-icon">
     <link rel="shortcut icon" href="./asset/origin.ico" type="image/x-icon">
+    <style>
+        #loading {
+            background: #000 url(./asset/loading.gif) no-repeat center center;
+            background-size: 10%;
+            height: 100vh;
+            width: 100%;
+            position: fixed;
+            z-index: 100;
+        }
+
+        #loading img {
+            width: 100px;
+            height: 100px;
+        }
+    </style>
 </head>
 <body>
+
+    <div id="loading"></div>
 
     <header class="header">
 

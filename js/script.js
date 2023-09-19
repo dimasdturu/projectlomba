@@ -1,3 +1,17 @@
+function closepreloader(){
+    document.getElementById("loading").style.display = 'none';
+}
+window.addEventListener("load",function(){
+    setTimeout(closepreloader, 1000);
+    
+});
+
+function showNavbar() {
+document.querySelector(".header").style.display = "flex";
+}
+
+setTimeout(showNavbar, 1000);
+
 document.addEventListener("DOMContentLoaded", function () {
     const menuBtn = document.getElementById("menu-button");
     const navbar = document.querySelector(".navbar");

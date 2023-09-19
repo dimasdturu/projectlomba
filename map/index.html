@@ -15,13 +15,31 @@
     <link rel="shortcut icon" href="../asset/origin.ico" type="image/x-icon">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
     <style>
+        #loading {
+            background: #000 url(../asset/loading.gif) no-repeat center center;
+            background-size: 10%;
+            height: 100vh;
+            width: 100%;
+            position: fixed;
+            z-index: 100;
+        }
+
+        #loading img {
+            width: 100px;
+            height: 100px;
+        }
+
         #map {
+            display: none;
             width: 100%;
             height: 583px;
         }
     </style>
 </head>
 <body>
+
+    <div id="loading"></div>
+    
     <header class="header">
 
         <a href="../index.html" class="logo">
@@ -47,38 +65,61 @@
     <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
     <script src="../js/script.js"></script>
     <script>
-        var mymap = L.map('map', {
-            zoomControl: false
-        }).setView([-2.5489, 118.0149], 5);
-
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            maxZoom: 19,
-        }).addTo(mymap);
-
-        var geojsonUrl = 'indonesia-prov.geojson';
-
-        fetch(geojsonUrl)
-            .then(function (response) {
-                return response.json();
-            })
-            .then(function (data) {
-                var geojsonLayer = L.geoJSON(data, {
-                    onEachFeature: function (feature, layer) {
-                        layer.on('mouseover', function () {
-                            var namaDaerah = feature.properties.Propinsi;
-                            layer.bindPopup(namaDaerah).openPopup();
-                        });
-
-                        layer.on('click', function () {
-                            var namaDaerah = feature.properties.Propinsi;
-                            layer.bindPopup(namaDaerah).openPopup();
-                        });
+        var mymap;
+        var isMapHidden = false;
+    
+        function initializeMap() {
+            mymap = L.map('map', {
+                zoomControl: false
+            }).setView([-2.5489, 118.0149], 5);
+    
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                maxZoom: 19,
+            }).addTo(mymap);
+    
+            var geojsonUrl = 'indonesia-prov.geojson';
+    
+            fetch(geojsonUrl)
+                .then(function (response) {
+                    return response.json();
+                })
+                .then(function (data) {
+                    var geojsonLayer = L.geoJSON(data, {
+                        onEachFeature: function (feature, layer) {
+                            layer.on('mouseover', function () {
+                                var namaDaerah = feature.properties.Propinsi;
+                                layer.bindPopup(namaDaerah).openPopup();
+                            });
+    
+                            layer.on('click', function () {
+                                var namaDaerah = feature.properties.Propinsi;
+                                layer.bindPopup(namaDaerah).openPopup();
+                            });
+                        }
+                    }).addTo(mymap);
+    
+                    mymap.fitBounds(geojsonLayer.getBounds());
+    
+                    if (isMapHidden) {
+                        document.querySelector("#map").style.display = "none";
                     }
-                }).addTo(mymap);
-
-                mymap.fitBounds(geojsonLayer.getBounds());
-            });
+                });
+        }
+    
+        initializeMap();
+    
+        setTimeout(function () {
+            document.querySelector("#map").style.display = "none";
+            isMapHidden = true;
+        }, 1000);
+    
+        setTimeout(function () {
+            document.querySelector("#map").style.display = "flex";
+            mymap.invalidateSize();
+            mymap.setView([-2.5489, 118.0149], 5);
+        }, 1000);
     </script>
+    
 
 <footer class="footer">
     Copyright &copy; 2023 <strong>Origin Team.</strong> All Rights Reserved.
