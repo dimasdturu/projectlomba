@@ -12,6 +12,12 @@ document.querySelector(".header").style.display = "flex";
 
 setTimeout(showNavbar, 1000);
 
+function showScroll() {
+    document.querySelector("html").style.overflow = "auto";
+    }
+    
+    setTimeout(showScroll, 1000);
+
 document.addEventListener("DOMContentLoaded", function () {
     const menuBtn = document.getElementById("menu-button");
     const navbar = document.querySelector(".navbar");
