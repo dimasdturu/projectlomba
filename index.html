@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta property="og:site_name" content="Culture Indonesian">
+    <meta property="og:title" content="Culture Indonesian">
+    <meta property="og:description" content="Coba cari tahu betapa indahnya kekayaan dan kelimpahan di Budaya maupun kenampakan Alam Indonesia.">
+    <meta property="og:url" content="https://cultureindonesian.rf.gd">
+    <meta property="og:type" content="website">
+
+    <title>Culture Indonesian</title> 
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital@1&family=Josefin+Sans:ital,wght@1,700&family=Konkhmer+Sleokchher&family=Asul&display=swap" rel="stylesheet">
+    <link rel="icon" href="./asset/origin.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="./asset/origin.ico" type="image/x-icon">
+</head>
+<body>
+
+    <div id="loading"></div>
+
+    <header class="header">
+
+        <a href="index.html" class="logo">
+            <img src="./asset/origin-asli.png" alt="Origin" width="35px;">
+        </a>
+
+        <nav class="navbar">
+            <a href="index.html" class="active">Beranda</a>
+            <a href="suku.html" class="hide-on-mobile">Suku</a>
+            <a href="candi.html">Candi</a>
+            <a href="./map/index.html">Peta Indonesia</a>
+        </nav>
+        
+        <div id="menu-button">
+            <i class="fas fa-bars"></i>
+        </div>          
+
+    </header>
+
+    <section class="home" id="home">
+
+        <div class="row">
+            <h1 class="infohero__title">THIS IS
+                <span>CULTURE</span>
+            </h1>
+            <div id="typewriter-text">
+                <span id="typedText"></span>
+                <span id="cursor" class="blink">&nbsp;</span>
+            </div>
+        </div>
+
+        <img src="./images/wave.png" alt="" class="wave">
+
+    </section>
+
+    <section class="gunung" id="gunung">
+
+        <h2 class="heading">Gunung Tertinggi</h2>
+
+        <div class="box-container">
+
+            <div class="box">
+                <img src="./images/jayawijaya.jpg" alt="">
+                <div class="content">
+                    <h3>Jayawijaya</h3>
+                    <a href="./gunung/jayawijaya.html" class="btn">Read More</a>
+                </div>
+            </div>
+
+            <div class="box">
+                <img src="./images/kerinci.jpg" alt="">
+                <div class="content">
+                    <h3>Kerinci</h3>
+                    <a href="./gunung/kerinci.html" class="btn">Read More</a>
+                </div>
+            </div>
+
+            <div class="box">
+                <img src="./images/rinjani.jpg" alt="">
+                <div class="content">
+                    <h3>Rinjani</h3>
+                    <a href="./gunung/rinjani.html" class="btn">Read More</a>
+                </div>
+            </div>
+
+            <div class="box">
+                <img src="./images/semeru.jpg" alt="">
+                <div class="content">
+                    <h3>Semeru</h3>
+                    <a href="./gunung/semeru.html" class="btn">Read More</a>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="apaitu" id="apaitu">
+    
+        <div class="swiper apaitu-slider">
+    
+            <div class="swiper-wrapper">
+    
+                <div class="swiper-slide slide">
+                    <div class="content">
+                        <h3>Apa itu Suku?</h3>
+                        <br>
+                        <p>
+                            <strong>Suku</strong> adalah kelompok manusia yang memiliki ikatan bersama berdasarkan budaya, 
+                            bahasa, sejarah, atau asal usul etnis yang sama. 
+                            Mereka memiliki ciri-ciri unik seperti bahasa, tradisi, dan kepercayaan.
+                        </p>
+                    </div>
+                </div>
+    
+                <div class="swiper-slide slide">
+                    <div class="content">
+                        <h3>Apa itu Candi?</h3>
+                        <br>
+                        <p>
+                            <strong>Candi</strong> adalah bangunan suci atau tempat ibadah yang memiliki nilai 
+                            historis dan keagamaan, umumnya ditemukan di Asia Tenggara dan Asia Selatan. 
+                            Mereka memiliki arsitektur yang indah serta detail ukiran yang halus.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="swiper-slide slide">
+                    <div class="content">
+                        <h3>Apa itu Gunung?</h3>
+                        <br>
+                        <p>
+                            <strong>Gunung</strong> adalah bentuk geografis tinggi yang terdiri dari tumpukan batuan, tanah, 
+                            dan materi lainnya yang dominan di lanskap. Mereka dapat berupa gunung berapi (terkait dengan letusan vulkanik) 
+                            atau gunung non-vulkanik (terbentuk melalui tektonik atau erosi) dan memiliki berbagai bentuk dan ketinggian.
+                        </p>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+    
+        </div>
+    
+    </section>
+
+    <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+    <script src="./js/script.js"></script>
+    <script>
+            var swiper = new Swiper(".apaitu-slider", {
+                grabCursor: true,
+                loop: true,
+                centeredSlides: true,
+                spaceBetween: 20,
+                autoplay: {
+                    delay: 2500, 
+                    disableOnInteraction: false
+                },
+                navigation: {
+                    nextEl: ".swiper-button-next",
+                    prevEl: ".swiper-button-prev",
+                },
+                breakpoints: {
+                    0: {
+                        slidesPerView: 1,
+                    },
+                    700: {
+                        slidesPerView: 2,
+                    },
+                }
+            });
+    </script>
+
+</body>
+
+<footer class="footer">
+    Copyright &copy; 2023 <strong>Origin Team.</strong> All Rights Reserved.
+</footer>
+
+</html>
