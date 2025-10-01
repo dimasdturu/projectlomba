@@ -1,335 +1,0 @@
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-		<!--projecttitle--><title>plaosan</title><!--projecttitle-end-->
-		<!--projectdescription--><meta name="description" content="Baruuuuurururuurru"><!--projectdescription-end-->
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-		<meta charset="utf-8">
-		<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width, shrink-to-fit=no">
-		
-		<link rel="stylesheet" type="text/css" href="css/font-awesome.css">
-		<link rel="stylesheet" type="text/css" href="style.css">
-		
-		<!-- Insert this line above script imports  -->
-		<script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
-		
-		<script src="imagedata.js"></script>
-		<script src="jquery.js"></script>
-		<script src="three.min.js"></script>
-		<script src="panolens.min.js"></script>
-		
-		<!-- Insert this line after script imports -->
-		<script>if (window.module) module = window.module;</script>
-		
-		<style>
-		
-			
-						
-			/* SCROLLBAR STYLING */
-			/* width */
-			::-webkit-scrollbar {
-				width: 0.25em;
-				height: 0.25em;
-			}
-			/* Track */
-			::-webkit-scrollbar-track {
-				background: #2c3643; 
-			}
-			/* Handle */
-			::-webkit-scrollbar-thumb {
-				background: #0d9e59; 
-				transition: background .5s;
-			}
-			/* Handle on hover */
-			::-webkit-scrollbar-thumb:hover {
-				background: #00e075; 
-			}
-
-
-			html, body {
-				margin: 0;
-				width: 100%;
-				height: 100%;
-				overflow: hidden;
-				background-color: #000;
-				color; black;
-			}
-
-			a:link, a:visited{
-				color: #bdc3c7;	
-			}
-
-			.fullwrapper{
-				position: fixed;
-				top: 0;
-				left: 0;
-				right: 0;
-				bottom: 0;
-				background-color: black;
-			}
-			
-			#container {
-                width: 100%;
-                height: 100%;
-            }
-			
-			#tmp{
-				position: fixed;
-				top: 0;
-				left: 0; 
-				right: 0;
-				bottom: 0;
-				padding: 3em;
-				background-color: rgba(0,0,0,.5);
-				backdrop-filter: blur(5px);
-				display: none;
-			}
-		</style>
-	</head>
-	<body id="body">
-	    <div id="container" style="color: black;"></div>
-    	
-		
-		
-		<!--customhtml--><div class='customhotspot' id='P1'></div><div class='customhotspot' id='P2'></div><div class='customhotspot' id='P3'></div><div class='customhotspot' id='P4'></div><!--customhtml-end-->
-		
-		<div id="tmp">
-			<div style="width: 100%; height: 100%; overflow: hidden; overflow-y: auto; box-sizing: border-box; position: relative;" id="tmpcontent"></div>
-			<div class="mediaclosebutton" onclick="hideTemp()"><i class="fa fa-times-circle"></i></div>
-		</div>
-
-		<div id="loading" class="fullwrapper" style="display: table; width: 100%; height: 100%;">
-    		<div style="display: table-cell; vertical-align: middle; text-align: center; color: white; font-size: 30px; padding: 50px;">
-    			<!--loadingtext-->Loading...<!--loadingtext-end-->
-    		</div>
-    	</div>
-		
-    	<script>
-			
-            var container = document.querySelector( '#container' );
-			/*panolens*/
-var viewer = new PANOLENS.Viewer( { container: container , controlBar: false,  output: 'console' , autoHideInfospot: false, } );
-/*panolens-end*/
-			
-			viewer.addUpdateCallback(function(){});
-			
-			/*panoramas*/
-var P1 = new PANOLENS.ImagePanorama( "panoramas/P1.jpg" );
-			P1.addEventListener('progress', function(e){
-				$("#loading").show();
-			});
-			P1.addEventListener('load', function(e){
-				//$("#loading").fadeOut();
-			});
-			P1.addEventListener('click', function(e){
-			});
-
-var infospotP10 = new PANOLENS.Infospot( 512, hotspotIcons[11].data, true );
-					infospotP10.position.set( 4971.66, 346.19, -281.16 );
-					P1.add(infospotP10);
-infospotP10.addEventListener('click', function(){
-ChangePanorama('P3');
-});
-var infospotP11 = new PANOLENS.Infospot( 512, hotspotIcons[3].data, true );
-					infospotP11.position.set( 2085.67, -421.56, 4520.08 );
-					P1.add(infospotP11);
-infospotP11.addEventListener('click', function(){
-ChangePanorama('P4');
-});
-viewer.add( P1 );
-var P2 = new PANOLENS.ImagePanorama( "panoramas/P2.jpg" );
-			P2.addEventListener('progress', function(e){
-				$("#loading").show();
-			});
-			P2.addEventListener('load', function(e){
-				//$("#loading").fadeOut();
-			});
-			P2.addEventListener('click', function(e){
-			});
-
-var infospotP20 = new PANOLENS.Infospot( 512, hotspotIcons[11].data, true );
-					infospotP20.position.set( 4946.24, -121.31, -658.72 );
-					P2.add(infospotP20);
-infospotP20.addEventListener('click', function(){
-ChangePanorama('P3');
-});
-var infospotP21 = new PANOLENS.Infospot( 512, hotspotIcons[3].data, true );
-					infospotP21.position.set( 4172.81, 139.07, -2732.24 );
-					P2.add(infospotP21);
-infospotP21.addEventListener('click', function(){
-ChangePanorama('P4');
-});
-viewer.add( P2 );
-var P3 = new PANOLENS.ImagePanorama( "panoramas/P3.jpg" );
-			P3.addEventListener('progress', function(e){
-				$("#loading").show();
-			});
-			P3.addEventListener('load', function(e){
-				//$("#loading").fadeOut();
-			});
-			P3.addEventListener('click', function(e){
-			});
-
-var infospotP30 = new PANOLENS.Infospot( 512, hotspotIcons[11].data, true );
-					infospotP30.position.set( 227.21, 117.17, 4983.49 );
-					P3.add(infospotP30);
-infospotP30.addEventListener('click', function(){
-ChangePanorama('P2');
-});
-var infospotP31 = new PANOLENS.Infospot( 512, hotspotIcons[3].data, true );
-					infospotP31.position.set( 4924.61, 564.01, -597.53 );
-					P3.add(infospotP31);
-infospotP31.addEventListener('click', function(){
-ChangePanorama('P4');
-});
-viewer.add( P3 );
-var P4 = new PANOLENS.ImagePanorama( "panoramas/P4.jpg" );
-			P4.addEventListener('progress', function(e){
-				$("#loading").show();
-			});
-			P4.addEventListener('load', function(e){
-				//$("#loading").fadeOut();
-			});
-			P4.addEventListener('click', function(e){
-			});
-
-var infospotP40 = new PANOLENS.Infospot( 512, hotspotIcons[11].data, true );
-					infospotP40.position.set( -3098.63, -443.55, -3888.16 );
-					P4.add(infospotP40);
-infospotP40.addEventListener('click', function(){
-ChangePanorama('P1');
-});
-var infospotP41 = new PANOLENS.Infospot( 512, hotspotIcons[11].data, true );
-					infospotP41.position.set( 4717.99, 154.70, -1625.29 );
-					P4.add(infospotP41);
-infospotP41.addEventListener('click', function(){
-ChangePanorama('P3');
-});
-viewer.add( P4 );
-$(document).ready(function(){ ChangePanorama('P4'); });
-
-/*panoramas-end*/
-            
-			
-			function hideTemp(){
-				$("#tmp").fadeOut();
-				setTimeout(function(){
-					$("#tmpcontent").html("");
-				},1000);
-			}
-			
-			function showMedia(type, content){
-				switch(type){
-					case 1 :
-						//Image
-						$("#tmpcontent").html("<img src='"+content+"' style='width: 100%;'>");
-						$("#tmp").fadeIn();
-						break;
-					case 2 :
-						//Video
-						$("#tmpcontent").html("<video id='webvideo' controls autoplay style='width: 100%; height: 100%;'><source src='" +content+ "' type='video/mp4'> Your browser does not support the video tag. </video>");
-						$("#tmp").fadeIn();
-						break;
-					case 3 :
-						//Audio
-						$("#tmpcontent").html("<audio controls style='width: 100%;'><source src='"+content+"' type='audio/ogg'>Your browser does not support the audio tag.</audio>");
-						$("#tmp").fadeIn();
-						break;
-					case 4 :
-						//PDF
-						$("#tmpcontent").html("<iframe src='pdfjs/web/viewer.html?file=../../"+content+"' style='width: 100%; height: 99%;'></iframe>");
-						$("#tmp").fadeIn();
-						break;
-				}
-			}
-			
-			
-			
-			//Update Callback
-			viewer.addUpdateCallback(function(){
-				
-				/*viewerupdatecallback*/
-if(viewer.panorama == P1){
-}
-
-if(viewer.panorama == P2){
-}
-
-if(viewer.panorama == P3){
-}
-
-if(viewer.panorama == P4){
-}
-/*viewerupdatecallback-end*/
-				
-				
-			});
-			
-			
-			
-			var hotspotsvisible = true;
-			function ShowMyInfospot(hs, elid){
-				var thehs = toScreenPosition(hs);
-				if(thehs.z < 1){
-					$("#" + elid).css({
-						"top" : (thehs.y - ($("#" + elid).height()/2)) + "px",
-						"left" : (thehs.x - ($("#" + elid).width()/2)) + "px",
-					});
-					if(hotspotsvisible)
-						$("#" + elid).show();
-				}else{
-					$("#" + elid).hide();
-				}
-				
-			}
-			
-			function toScreenPosition(obj)
-			{
-				var vector = new THREE.Vector3();
-				var widthHalf = 0.5 * innerWidth;
-				var heightHalf = 0.5 * innerHeight;
-				
-				//obj.updateMatrixWorld();				
-				vector.setFromMatrixPosition(obj.matrixWorld);
-				
-				
-				vector.project(viewer.camera);
-
-				vector.x = ( vector.x * widthHalf ) + widthHalf;
-				vector.y = - ( vector.y * heightHalf ) + heightHalf;
-
-				
-				return { 
-					x: vector.x,
-					y: vector.y,
-					z: vector.z,
-				};
-
-			};
-			
-			var currentPanorama;
-			function ChangePanorama(panorama){
-				currentPanorama = panorama;
-				HideInfospots(); 
-				$("#loading").fadeIn();
-				//$(".customhotspot").fadeOut();
-				setTimeout(function(){
-					viewer.setPanorama(window[panorama]);
-				}, 100);
-				setTimeout(function(){
-					$("#" + panorama).fadeIn();
-					$("#loading").fadeOut();
-				}, 1000);
-				
-			}
-			
-			
-			
-			function HideInfospots(){
-				$(".customhotspot").fadeOut();
-			}
-
-			/*customjs*//*customjs-end*/
-        </script>
-	</body>
-</html>
